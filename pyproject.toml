@@ -1,0 +1,32 @@
+[project]
+name = "learning-projects"
+version = "0.1.0"
+description = "Scaffolded deep learning and reinforcement learning learning modules."
+requires-python = ">=3.11"
+dependencies = [
+  "torch",
+  "datasets",
+  "numpy",
+  "pytest",
+  "tqdm",
+  "matplotlib",
+  "gymnasium",
+  "pettingzoo[classic]",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests", "modules"]
+markers = [
+  "scaffold: tests for repository and module scaffold integrity",
+  "micro_gpt_tokenizer: micro_gpt tokenizer milestone",
+  "micro_gpt_model: micro_gpt model milestone",
+  "micro_gpt_training: micro_gpt training milestone",
+  "micro_text_diffusion_schedule: micro_text_diffusion noising schedule milestone",
+  "micro_text_diffusion_model: micro_text_diffusion denoiser milestone",
+  "alpha_zero_env: alpha_zero external environment adapter milestone",
+  "alpha_zero_mcts: alpha_zero MCTS milestone",
+  "alpha_zero_self_play: alpha_zero self-play milestone",
+  "alpha_fold_features: alpha_fold_toy feature milestone",
+  "alpha_fold_model: alpha_fold_toy model milestone",
+]
