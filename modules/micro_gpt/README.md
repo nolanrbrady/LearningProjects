@@ -18,7 +18,7 @@ Use the Hugging Face dataset `karpathy/tiny_shakespeare`. Keep downloads optiona
 
 ## Information Flow
 
-1. `load_tiny_shakespeare_text` returns a bounded raw text slice.
+1. [X] `load_tiny_shakespeare_text` returns a bounded raw text slice.
 2. `CharacterTokenizer.fit` builds the character vocabulary from training text.
 3. `CharacterTokenizer.encode` converts text into a flat token stream.
 4. `build_lm_batches` turns the stream into next-token `(x, y)` windows.
