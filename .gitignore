@@ -1,2 +1,4 @@
 modules/*/data/tiny_stories/*.csv
 *.pyc
+
+.DS_Store
