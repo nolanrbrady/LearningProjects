@@ -18,9 +18,9 @@ Use the Hugging Face dataset `karpathy/tiny_shakespeare`. Keep downloads optiona
 
 ## Information Flow
 
-1. [X] `load_tiny_shakespeare_text` returns a bounded raw text slice.
-2. [X] `CharacterTokenizer.fit` builds the character vocabulary from training text.
-3. [X] `CharacterTokenizer.encode` converts text into a flat token stream.
+1. `load_tiny_shakespeare_text` returns a bounded raw text slice.
+2. `CharacterTokenizer.fit` builds the character vocabulary from training text.
+3. `CharacterTokenizer.encode` converts text into a flat token stream.
 4. `build_lm_batches` turns the stream into next-token `(x, y)` windows.
 5. `MicroGPT.forward` embeds tokens and positions, applies transformer blocks, and produces next-token logits.
 6. `train_one_epoch` and `estimate_loss` use the model loss to track learning.
@@ -41,8 +41,8 @@ Every public function or method in this flow has a milestone test. The tests are
 
 ## Suggested 30-60 Minute Sessions
 
-- Session 1: implement `load_tiny_shakespeare_text` and inspect a short corpus slice.
-- Session 2: implement `CharacterTokenizer.fit`, `encode`, and `decode`.
+- [X] Session 1: implement `load_tiny_shakespeare_text` and inspect a short corpus slice.
+- [X] Session 2: implement `CharacterTokenizer.fit`, `encode`, and `decode`.
 - Session 3: implement fixed-length next-token batches.
 - Session 4: implement causal masking and attention shape logic.
 - Session 5: implement the transformer block.

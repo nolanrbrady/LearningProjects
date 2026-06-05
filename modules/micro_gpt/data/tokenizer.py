@@ -1,3 +1,5 @@
+import random
+
 """Tokenizer and language-model batch skeletons for micro_gpt."""
 
 
@@ -73,6 +75,7 @@ class CharacterTokenizer:
             else:
                 ValueError(f"Token ID {token_id} is available in the tokenzer.")
         
+        print("Decoded string from token IDs: ")
         print(output_text)
         return output_text
 
@@ -92,7 +95,15 @@ def build_lm_batches(token_ids: list[int], context_length: int, batch_size: int)
 
     This is the data contract consumed by the GPT training loop.
     """
-    raise NotImplementedError("Implement language-model batching as a learning milestone.")
+    batch_x = []
+    batch_y = []
+    for _ in range(batch_size):
+        start_char = random.randint(0, len(token_ids) - (context_length + 1))
+        batch_x.append(token_ids[start_char : start_char + context_length + 1])
+        batch_y.append(token_ids[start_char + 1 : start_char + context_length + 2]) 
+
+    return batch_x, batch_y
+        
 
 
 if __name__ == "__main__":
@@ -106,8 +117,8 @@ if __name__ == "__main__":
     decoded_text = tokenizer.decode(token_ids)
     print(f"Decoded text: {decoded_text}")
 
-    # context_length = 5
-    # batch_size = 2
-    # x, y = build_lm_batches(token_ids, context_length, batch_size)
-    # print(f"Input batch (x): {x}")
-    # print(f"Target batch (y): {y}")
+    context_length = 5
+    batch_size = 2
+    x, y = build_lm_batches(token_ids, context_length, batch_size)
+    print(f"Input batch (x): {x}")
+    print(f"Target batch (y): {y}")
